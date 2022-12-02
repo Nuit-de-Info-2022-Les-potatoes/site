@@ -1,7 +1,7 @@
-import style from "../styles/HandComponent.module.scss";
+import style from "../../styles/HandComponent.module.scss";
 import CardComponent from "./Card/CardComponent";
-import {Card} from "../src/Card";
-import {Player} from "../src/Player";
+import {Card} from "../Models/Card";
+import {Player} from "../Models/Player";
 
 interface HandComponentProps {
     cards: Card[],

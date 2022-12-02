@@ -1,6 +1,6 @@
-import {BonusCard, Card, CardFamily, JokerCard, MalusCard, ScoreCard} from "../Card";
+import {BonusCard, Card, CardFamily, JokerCard, MalusCard, ScoreCard} from "../Models/Card";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {Player} from "../Player";
+import {Player} from "../Models/Player";
 
 export interface PlayerState {
     score: number,

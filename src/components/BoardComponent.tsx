@@ -1,7 +1,7 @@
 import HandComponent from "./HandComponent";
-import style from "../styles/BoardComponent.module.scss"
-import {useAppSelector} from "../src/store/hook";
-import {Player} from "../src/Player";
+import style from "../../styles/BoardComponent.module.scss"
+import {useAppSelector} from "../store/hook";
+import {Player} from "../Models/Player";
 
 export default function BoardComponent() {
 
