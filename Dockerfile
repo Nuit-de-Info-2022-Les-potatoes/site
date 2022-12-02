@@ -8,8 +8,8 @@ RUN yarn install --omit=dev
 
 FROM node:16-alpine AS builder
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+COPY --from=deps /app/node_modules ./node_modules
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
@@ -17,5 +17,5 @@ RUN yarn build
 
 EXPOSE 3000
 
-CMD npm start
+CMD yarn preview --port 3000 --host
 
