@@ -1,3 +1,13 @@
+## Description
+
+Ce projet est une adaptation du très connu jeu le "1000 bornes". Renommé en : les 1000 rapports. Le but du jeu est d'avoir 1000 rapports tout en évitant les différents IST ralentissants la progression du joueur.
+La vision du projet était de créer un jeu permettant l'apprentissage ludique des IST et des préventions associées. Une page de wiki plus détaillée devait être créer afin de répertorié tous les IST, leurs préventions et les traitements associés.
+
+De façon plus technique, nous avons utilisés la stack technique suivante: React.JS, TypeScript, ReduxJS
+ 
+ 
+URL de l'application: https://site-ashen-two.vercel.app/
+
 ## Installation
 
 ### Pré-requis
