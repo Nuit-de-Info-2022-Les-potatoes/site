@@ -1,7 +1,3 @@
-import {Player} from "./Player";
-import {useAppDispatch, useAppSelector} from "./store/hook";
-import {useCard} from "./store/gamestore";
-
 export enum CardFamily {
     situation,
     syphilis,
@@ -16,7 +12,7 @@ export interface Card {
     image: string,
     family : CardFamily
 
-    execute(player: Player): Promise<boolean>;
+    // execute(player: Player): Promise<boolean>;
 }
 
 export class MalusCard implements Card {
@@ -30,16 +26,16 @@ export class MalusCard implements Card {
     name: string;
     family : CardFamily;
 
-    async execute(player: Player): Promise<boolean> {
-        const topCard = useAppSelector(state => player == Player.playerA ? state.game.playerA.topCard : state.game.playerB.topCard)
-        if (!(topCard instanceof BonusCard))
-            return false;
-        const dispatcher = useAppDispatch()
-
-        dispatcher(useCard({player: player, card: this}))
-
-        return true;
-    }
+    // async execute(player: Player): Promise<boolean> {
+    //     const topCard = useAppSelector(state => player == Player.playerA ? state.game.playerA.topCard : state.game.playerB.topCard)
+    //     if (!(topCard instanceof BonusCard))
+    //         return false;
+    //     const dispatcher = useAppDispatch()
+    //
+    //     dispatcher(useCard({player: player, card: this}))
+    //
+    //     return true;
+    // }
 }
 
 
@@ -55,20 +51,20 @@ export class BonusCard implements Card {
     name: string;
     family : CardFamily;
 
-    async execute(player: Player): Promise<boolean> {
-        const topCard = useAppSelector(state => player == Player.playerA ? state.game.playerA.topCard : state.game.playerB.topCard)
-
-        if (!(topCard instanceof MalusCard))
-            return false;
-
-
-        const dispatcher = useAppDispatch()
-
-        dispatcher(useCard({player: player, card: this}))
-
-
-        return true;
-    }
+    // async execute(player: Player): Promise<boolean> {
+    //     const topCard = useAppSelector(state => player == Player.playerA ? state.game.playerA.topCard : state.game.playerB.topCard)
+    //
+    //     if (!(topCard instanceof MalusCard))
+    //         return false;
+    //
+    //
+    //     const dispatcher = useAppDispatch()
+    //
+    //     dispatcher(useCard({player: player, card: this}))
+    //
+    //
+    //     return true;
+    // }
 
 }
 
@@ -84,15 +80,15 @@ export class JokerCard implements Card {
     name: string;
     family : CardFamily;
 
-    async execute(player: Player): Promise<boolean> {
-
-        const dispatcher = useAppDispatch()
-
-        dispatcher(useCard({player: player, card: this}))
-
-
-        return true;
-    }
+    // async execute(player: Player): Promise<boolean> {
+    //
+    //     const dispatcher = useAppDispatch()
+    //
+    //     dispatcher(useCard({player: player, card: this}))
+    //
+    //
+    //     return true;
+    // }
 
 }
 
@@ -110,14 +106,14 @@ export class ScoreCard implements Card {
     name: string;
     family : CardFamily;
 
-    async execute(player: Player): Promise<boolean> {
-
-        const dispatcher = useAppDispatch()
-
-        dispatcher(useCard({player: player, card: this}))
-
-        return true;
-    }
+    // async execute(player: Player): Promise<boolean> {
+    //
+    //     const dispatcher = useAppDispatch()
+    //
+    //     dispatcher(useCard({player: player, card: this}))
+    //
+    //     return true;
+    // }
 
 }
 
