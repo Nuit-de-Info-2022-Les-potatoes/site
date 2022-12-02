@@ -40,44 +40,46 @@ const initNumberCard: number = 6
 
 function getInitCard(): Card[] {
     let cards: Card[] = []
-    for (let i = 0; i < 5; i++) {
-        cards.push(new MalusCard("malus_preservatif.jpg", "Préservatif défectueux", CardFamily.preservatif))
+/*    for (let i = 0; i < 5; i++) {
+        cards.push(new MalusCard("malus_preservatif.png", "Préservatif défectueux", CardFamily.preservatif))
     }
     for (let i = 0; i < 14; i++) {
-        cards.push(new BonusCard("bonus_preservatif.jpg", "Préservatif", CardFamily.preservatif))
-    }
+        cards.push(new BonusCard("bonus_preservatif.png", "Préservatif", CardFamily.preservatif))
+    }*/
     for (let i = 0; i < 6; i++) {
-        cards.push(new BonusCard("bonus_situation.jpg", "Vivre Seul", CardFamily.situation))
-        cards.push(new BonusCard("bonus_syphilis.jpg", "Traitement anti-biotique", CardFamily.syphilis))
-        cards.push(new BonusCard("bonus_hpv.jpg", "Traitement par cryothérapie", CardFamily.hpv))
-        cards.push(new BonusCard("bonus_hepatite.jpg", "Guérison Spontanée", CardFamily.hepatiteB))
+        cards.push(new BonusCard("user.png", "Vivre Seul", CardFamily.situation))
+        cards.push(new BonusCard("pills.png", "Traitement anti-biotique", CardFamily.syphilis))
+        cards.push(new BonusCard("pills.png", "Traitement par cryothérapie", CardFamily.hpv))
+        cards.push(new BonusCard("star-of-life.png", "Guérison Spontanée", CardFamily.hepatiteB))
     }
     for (let i = 0; i < 4; i++) {
-        cards.push(new MalusCard("malus_situation.jpg", "Vivre en collectivité", CardFamily.situation))
+        cards.push(new MalusCard("users.png", "Vivre en collectivité", CardFamily.situation))
     }
+    //malus
     for (let i = 0; i < 3; i++) {
-        cards.push(new MalusCard("malus_syphilis.jpg", "Syphilis", CardFamily.syphilis))
-        cards.push(new MalusCard("malus_hpv.jpg", "HPV", CardFamily.hpv))
-        cards.push(new MalusCard("malus_hepatite.jpg", "Hepatite D", CardFamily.hepatiteB))
+        //malus_syphilis
+        cards.push(new MalusCard("virus.png", "Syphilis", CardFamily.syphilis))
+        cards.push(new MalusCard("virus.png", "HPV", CardFamily.hpv))
+        cards.push(new MalusCard("virus.png", "Hepatite D", CardFamily.hepatiteB))
     }
 
 
-    cards.push(new MalusCard("joker_situation.jpg", "Vivre en  couple", CardFamily.situation))
-    cards.push(new MalusCard("joker_syphilis.jpg", "Recherche", CardFamily.syphilis))
-    cards.push(new MalusCard("joker_hpv.jpg", "Vaccin HPV", CardFamily.hpv))
-    cards.push(new MalusCard("joker_hepatite.jpg", "Vaccin Hepatite B", CardFamily.hepatiteB))
+    cards.push(new MalusCard("joker_situation.png", "Vivre en  couple", CardFamily.situation))
+    cards.push(new MalusCard("joker_syphilis.png", "Recherche", CardFamily.syphilis))
+    cards.push(new MalusCard("syringe.png", "Vaccin HPV", CardFamily.hpv))
+    cards.push(new MalusCard("syringe.png", "Vaccin Hepatite B", CardFamily.hepatiteB))
 
     for (let i = 0; i < 10; i++) {
-        cards.push(new ScoreCard("score_25.jpg", "Score 25", 25, CardFamily.score))
-        cards.push(new ScoreCard("score_50.jpg", "Score 50", 50, CardFamily.score))
-        cards.push(new ScoreCard("score_75.jpg", "Score 75", 75, CardFamily.score))
+        cards.push(new ScoreCard("score_25.png", "Score 25", 25, CardFamily.score))
+        cards.push(new ScoreCard("score_50.png", "Score 50", 50, CardFamily.score))
+        cards.push(new ScoreCard("score_75.png", "Score 75", 75, CardFamily.score))
     }
     for (let i = 0; i < 12; i++) {
-        cards.push(new ScoreCard("score_100.jpg", "Score 100", 100, CardFamily.score))
+        cards.push(new ScoreCard("score_100.png", "Score 100", 100, CardFamily.score))
     }
 
     for (let i = 0; i < 4; i++) {
-        cards.push(new ScoreCard("score_200.jpg", "Score 200", 200, CardFamily.score))
+        cards.push(new ScoreCard("score_200.png", "Score 200", 200, CardFamily.score))
     }
 
     return cards.sort((a, b) => 0.5 - Math.random());
