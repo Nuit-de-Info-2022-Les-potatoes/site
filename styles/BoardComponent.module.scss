@@ -1,0 +1,28 @@
+.board{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+
+  &>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+  }
+}
+
+.hands {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.joker {
+  width: 25%;
+  display: flex;
+
+}
