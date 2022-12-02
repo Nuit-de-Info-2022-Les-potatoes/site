@@ -40,12 +40,12 @@ const initNumberCard: number = 6
 
 function getInitCard(): Card[] {
     let cards: Card[] = []
-/*    for (let i = 0; i < 5; i++) {
-        cards.push(new MalusCard("malus_preservatif.png", "Préservatif défectueux", CardFamily.preservatif))
+    for (let i = 0; i < 5; i++) {
+        cards.push(new MalusCard("condom_cracked.png", "Préservatif défectueux", CardFamily.preservatif))
     }
     for (let i = 0; i < 14; i++) {
-        cards.push(new BonusCard("bonus_preservatif.png", "Préservatif", CardFamily.preservatif))
-    }*/
+        cards.push(new BonusCard("condom.png", "Préservatif", CardFamily.preservatif))
+    }
     for (let i = 0; i < 6; i++) {
         cards.push(new BonusCard("user.png", "Vivre Seul", CardFamily.situation))
         cards.push(new BonusCard("pills.png", "Traitement anti-biotique", CardFamily.syphilis))
@@ -64,10 +64,10 @@ function getInitCard(): Card[] {
     }
 
 
-    cards.push(new MalusCard("joker_situation.png", "Vivre en  couple", CardFamily.situation))
-    cards.push(new MalusCard("joker_syphilis.png", "Recherche", CardFamily.syphilis))
-    cards.push(new MalusCard("syringe.png", "Vaccin HPV", CardFamily.hpv))
-    cards.push(new MalusCard("syringe.png", "Vaccin Hepatite B", CardFamily.hepatiteB))
+    cards.push(new JokerCard("joker_situation.png", "Vivre en  couple", CardFamily.situation))
+    cards.push(new JokerCard("joker_syphilis.png", "Recherche", CardFamily.syphilis))
+    cards.push(new JokerCard("syringe.png", "Vaccin HPV", CardFamily.hpv))
+    cards.push(new JokerCard("syringe.png", "Vaccin Hepatite B", CardFamily.hepatiteB))
 
     for (let i = 0; i < 10; i++) {
         cards.push(new ScoreCard("score_25.png", "Score 25", 25, CardFamily.score))
@@ -98,7 +98,7 @@ const initialState: GameStore = {
         score: 0,
         topCard: undefined,
         jokers: [],
-        hand: initCards.slice(0, initNumberCard)
+        hand: initCards.slice(initNumberCard, initNumberCard*2)
     },
     deck: initCards.slice(initNumberCard * 2, initCards.length)
 }
@@ -156,7 +156,7 @@ export const gameSlice = createSlice({
                     state.playerA.hand = state.playerA.hand.filter(x => x != action.payload.card)
                     state.playerA.jokers.push(action.payload.card)
                 } else {
-                    state.playerA.hand = state.playerA.hand.filter(x => x != action.payload.card)
+                    state.playerB.hand = state.playerA.hand.filter(x => x != action.payload.card)
                     state.playerB.jokers.push(action.payload.card)
                 }
 

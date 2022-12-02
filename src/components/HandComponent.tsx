@@ -5,17 +5,17 @@ import {Player} from "../Models/Player";
 
 interface HandComponentProps {
     cards: Card[],
-    color: string,
     player: Player,
     score : number,
     onSelectCard: (card:Card) => void,
+    onDropCard?: (card: Card) => void
 }
 
-export default function HandComponent({cards, color, player, score,onSelectCard}: HandComponentProps): JSX.Element {
+export default function HandComponent({cards, player, score,onSelectCard, onDropCard}: HandComponentProps): JSX.Element {
 
     return <>
 
-        <div className={style.deck} style={{'background': color}}>
+        <div className={style.deck}>
 
 
             <div className={style.points}>
@@ -24,7 +24,7 @@ export default function HandComponent({cards, color, player, score,onSelectCard}
             </div>
 
             {cards.map((x, index) => {
-                return <CardComponent key={index} card={x} back={player == Player.playerB} onSelectCard={onSelectCard} />
+                return <CardComponent showDelete={true} key={index} card={x} back={player == Player.playerB&&false} onSelectCard={onSelectCard} onDropCard={onDropCard} />
             })}
 
 
