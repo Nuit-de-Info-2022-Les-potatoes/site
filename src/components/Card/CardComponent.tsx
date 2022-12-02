@@ -1,28 +1,48 @@
 import style from "../../../styles/card/cardComponents.module.scss";
 import cardBack from "../../../public/card/card_back.png";
-import {Card} from "../../Models/Card";
+import {BonusCard, Card, JokerCard, MalusCard, ScoreCard} from "../../Models/Card";
 
 
 interface CardComponentProps {
     card: Card,
-    back: boolean
+    back: boolean,
+    onSelectCard: (card:Card) => void
 }
 
-export default function CardComponent({card, back}: CardComponentProps): JSX.Element {
+export default function CardComponent({card, back, onSelectCard}: CardComponentProps): JSX.Element {
+
+    function getCardColor(card:Card) : string {
+        if(card instanceof MalusCard) {
+            return '#D35400';
+        } else if(card instanceof BonusCard) {
+            return '#039800';
+        } else if(card instanceof JokerCard) {
+            return '#F96C06';
+        } else if(card instanceof ScoreCard) {
+            return 'black'
+        }
+
+        return '';
+    }
+
+
     return <>
-        <div className={style.card}>
+        <div className={style.card + " " +(back && style.back)} onClick={()=>onSelectCard(card)}>
 
             {back ? <img src={cardBack} alt={"Image d'un virus"}/> : <>
-                <div>{card.name}</div>
+                <div className={style.rounded}>
+                    <div className={style.cardTitle}>{card.name}</div>
 
-                <img src={'/public/card/' + card.image} alt={"Image d'un virus"}/>
+                    <div style={{background: getCardColor(card)}}>
+                        <img src={'/card/' + card.image} alt={"Image d'un virus"}/>
+                    </div>
 
-                <div className={style.information}>
-                    <a href={""}>?</a>
                 </div>
             </>}
 
-
+            <div className={style.information}>
+                <a href={""}>?</a>
+            </div>
         </div>
     </>
 }

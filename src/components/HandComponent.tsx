@@ -6,10 +6,12 @@ import {Player} from "../Models/Player";
 interface HandComponentProps {
     cards: Card[],
     color: string,
-    player: Player
+    player: Player,
+    score : number,
+    onSelectCard: (card:Card) => void,
 }
 
-export default function HandComponent({cards, color, player}: HandComponentProps): JSX.Element {
+export default function HandComponent({cards, color, player, score,onSelectCard}: HandComponentProps): JSX.Element {
 
     return <>
 
@@ -17,12 +19,12 @@ export default function HandComponent({cards, color, player}: HandComponentProps
 
 
             <div className={style.points}>
-                <span>250</span>
+                <span>{score}</span>
                 <p>Rapports</p>
             </div>
 
             {cards.map((x, index) => {
-                return <CardComponent key={index} card={x} back={player == Player.playerB}/>
+                return <CardComponent key={index} card={x} back={player == Player.playerB} onSelectCard={onSelectCard} />
             })}
 
 

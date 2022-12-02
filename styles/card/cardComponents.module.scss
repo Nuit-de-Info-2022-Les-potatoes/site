@@ -1,22 +1,55 @@
 .card {
   position: relative;
-  height: 150px;
-  width: 100px;
+  height: 200px;
+  width: 150px;
   background: white;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
   margin: 0 10px;
+
+  &:not(.back):hover{
+    transition: transform 0.3s;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
   &:after {
     content: ' ';
     white-space: normal;
-    width: 90px;
-    height: 140px;
+    width: 140px;
+    height: 190px;
     position: absolute;
     border: 1px solid #FF859E;
     border-radius: 5px;
   }
+
+  .cardTitle{
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+.rounded {
+  color: black;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &>div {
+    height: 53px;
+    width: 53px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    padding: 10px;
+  }
+
 }
 
 .information {
@@ -24,10 +57,6 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  border: 1px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
